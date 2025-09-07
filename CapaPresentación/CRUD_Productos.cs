@@ -4,12 +4,12 @@ namespace CapaPresentación
 {
     public partial class CRUD_Productos : Form
     {
-        //INtancia de variable de la clase negocio
-//        CN_Productos objetoCN = new CN_Productos();
+         // intancia de variable de la clase negocio
+          CN_Productos objetoCN = new CN_Productos();
         
 
-        //private string idProducto = null;
-        //private bool Editar = false;
+         private string idProducto = null;
+         private bool Editar = false;
 
         public CRUD_Productos()// asi se llama mi formulario
         {

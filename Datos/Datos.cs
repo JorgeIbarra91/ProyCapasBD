@@ -1,31 +1,33 @@
-﻿using System.Data.SqlClient;
-using System.Data;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class Datos
+    public class CD_Conexion
     {
+        // Cadena de conexión ajustada a tu base de datos local
+        SqlConnection Conexion = new SqlConnection(
+    "Server=DESKTOP-DC7072T;Database=EjercicioDB;Integrated Security=True;TrustServerCertificate=True;"
+         );
 
-        public class CD_Conexion
+        // Método para abrir la conexión
+        public SqlConnection AbrirConexion()
         {
-
-
-            private SqlConnection Conexion = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=EjercicioDB;Integrated Security=True;TrustServerCertificate=True;");
-
-            public SqlConnection AbrirConexion()
+            if (Conexion.State == ConnectionState.Closed)
             {
-                if (Conexion.State == ConnectionState.Closed)
-                    Conexion.Open();
-                return Conexion;
+                Conexion.Open();
             }
-
-            public SqlConnection CerrarConexion()
-            {
-                if (Conexion.State == ConnectionState.Open)
-                    Conexion.Close();
-                return Conexion;
-            }
+            return Conexion;
         }
 
+        // Método para cerrar la conexión
+        public SqlConnection CerrarConexion()
+        {
+            if (Conexion.State == ConnectionState.Open)
+            {
+                Conexion.Close();
+            }
+            return Conexion;
+        }
     }
 }

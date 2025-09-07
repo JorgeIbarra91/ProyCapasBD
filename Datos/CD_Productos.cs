@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using static Datos.Datos;
 using System.Data;
 
 namespace Datos
@@ -13,7 +12,7 @@ namespace Datos
     {
         private CD_Conexion conexion = new CD_Conexion();
 
-        SqlDataReader leer;
+        SqlDataReader? leer = null;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
@@ -39,7 +38,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@descrip", desc);
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@precio", precio);
-            comando.Parameters.AddWithValue("@stock", precio);
+            comando.Parameters.AddWithValue("@stock", stock);
 
             comando.ExecuteNonQuery();
 
